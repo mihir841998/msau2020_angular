@@ -1,0 +1,65 @@
+import { Component, OnInit, ViewChild} from '@angular/core';
+import {UserService} from '../../service/user.service'
+import {MatTableDataSource} from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-viewallusers',
+  templateUrl: './viewallusers.component.html',
+  styleUrls: ['./viewallusers.component.css']
+})
+export class ViewallusersComponent implements OnInit {
+
+  dataSource = new MatTableDataSource();
+  displayedColumns: string[] = ['userid','name','phone','email','demandid','hmid','skill','location','start_date','eta','bgc_status','onboarding_status','actions'];
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+  constructor(private userService: UserService,private route:Router) { }
+
+  ngOnInit(): void 
+  {
+    this.get_table_data()
+      
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    }
+
+    get_table_data()
+    {
+      this.userService.get_all_onbordees().subscribe(
+        (res)=>{
+          console.log(res)
+          this.dataSource.data = res;
+        }
+      );
+
+    }
+  
+    applyFilter(event: Event) {
+      console.log('mihir',event)
+      const filterValue = (event.target as HTMLInputElement).value;
+      this.dataSource.filter = filterValue.trim().toLowerCase();
+      
+    } 
+    edit_onbordee(onbordee)
+    {
+      console.log('edit'+onbordee)
+      this.userService.onbordee_detail=onbordee
+      this.route.navigate(['userdetails'])
+    }
+
+    delete_onbordee(onbordee)
+    {
+      if(confirm("Are you sure  you want to delete the Onbordee "+name)) {
+        console.log("Implement delete functionality here");
+        console.log(onbordee.userid)
+        this.userService.delete_onbordee(onbordee.userid).subscribe((res)=>{
+            console.log(res)
+            this.get_table_data()
+        })
+        
+      }
+    }
+}
