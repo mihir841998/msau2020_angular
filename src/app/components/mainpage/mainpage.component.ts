@@ -18,4 +18,9 @@ export class MainpageComponent implements OnInit {
     this._router.navigate(['allusers'])
   }
 
+  viewTrends()
+  {
+    this._router.navigate(['trends'])
+  }
+
 }

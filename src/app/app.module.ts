@@ -19,6 +19,7 @@ import { MainpageComponent } from './components/mainpage/mainpage.component';
 import { ViewallusersComponent } from './components/viewallusers/viewallusers.component';
 import { UserdetailsComponent } from './components/userdetails/userdetails.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TrendsComponent } from './components/trends/trends.component';
 
 let config = new AuthServiceConfig([
   {
@@ -39,7 +40,8 @@ export function provideConfig() {
     FooterComponent,
     MainpageComponent,
     ViewallusersComponent,
-    UserdetailsComponent
+    UserdetailsComponent,
+    TrendsComponent
   ],
   imports: [
     BrowserModule,
