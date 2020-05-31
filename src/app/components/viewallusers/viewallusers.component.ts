@@ -45,8 +45,10 @@ export class ViewallusersComponent implements OnInit {
     } 
     edit_onbordee(onbordee)
     {
-      console.log('edit'+onbordee)
-      this.userService.onbordee_detail=onbordee
+      console.log('edit')
+      console.log(onbordee)
+      this.userService.onbordee=onbordee
+      this.userService.request='put'
       this.route.navigate(['userdetails'])
     }
 
@@ -58,8 +60,14 @@ export class ViewallusersComponent implements OnInit {
         this.userService.delete_onbordee(onbordee.userid).subscribe((res)=>{
             console.log(res)
             this.get_table_data()
-        })
-        
+        })        
       }
+    }
+    add_new_onbordee()
+    {
+        console.log('add')
+        this.userService.request='post'
+        this.route.navigate(['userdetails'])
+
     }
 }

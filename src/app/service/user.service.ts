@@ -10,7 +10,23 @@ export class UserService
 {
   base_url = "http://localhost:8080/MSAU2020/api";
   user_access = 1;
-  onbordee_detail:any
+  onbordee={
+    userid:'',
+    demandid:'',
+    hmid:'',
+    skill:'',
+    location:'',
+    start_date:'',
+    eta:'',
+    bgc_status:'',
+    onboarding_status:'',
+    name:'',
+    phone:'',
+    email:'',
+  }
+  request=''
+
+
   constructor(private _http: HttpClient) { }
 
   check_user_credentials(data:object):Observable<any>
@@ -31,8 +47,15 @@ export class UserService
   }
   update_onbordee(id,onbordee)
   {
-    console.log('update_onbordee'+id)
-    return this._http.put(this.base_url + "/onbordee/" + id,onbordee);
+    console.log('update_onbordee '+id)
+    console.log(onbordee)
+    return this._http.put(this.base_url + "/onbordee/" + id,onbordee,{responseType: 'text'});
+  }
+  save_onbordee(onbordee)
+  {
+    console.log('save onbordee')
+    console.log(onbordee)
+    return this._http.post(this.base_url+'/onbordee',onbordee,{responseType: 'text'})
   }
   
 }
