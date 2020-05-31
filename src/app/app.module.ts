@@ -9,6 +9,7 @@ import {MatPaginatorModule} from '@angular/material/paginator'
 import {MatSortModule} from '@angular/material/sort';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -54,7 +55,8 @@ export function provideConfig() {
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [{
     provide: AuthServiceConfig,

@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'mainpage', component: MainpageComponent },
   { path: 'allusers', component: ViewallusersComponent },
   { path: 'userdetails', component: UserdetailsComponent },
-  { path: 'trends', component:TrendsComponent },
+  { path: 'trends', component:TrendsComponent, },
   { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 

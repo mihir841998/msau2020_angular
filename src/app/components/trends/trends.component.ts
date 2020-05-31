@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-trends',
   templateUrl: './trends.component.html',
@@ -9,7 +10,12 @@ export class TrendsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+    // this.userService.get_trend().subscribe((res)=>
+    // {
+    //   console.log(res)
+    // })
   }
 
   public chartType: string = 'bar';
