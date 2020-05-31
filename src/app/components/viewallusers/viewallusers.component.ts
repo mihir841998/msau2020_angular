@@ -13,13 +13,19 @@ import { Router } from '@angular/router';
 export class ViewallusersComponent implements OnInit {
 
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = ['userid','name','phone','email','demandid','hmid','skill','location','start_date','eta','bgc_status','onboarding_status','actions'];
+  displayedColumns: string[] = ['userid','name','phone','email','demandid','hmid','skill','location','start_date','eta','bgc_status','onboarding_status'];
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
+  access_level
   constructor(private userService: UserService,private route:Router) { }
 
   ngOnInit(): void 
   {
+    if(this.userService.user_access==1)
+    {
+      this.displayedColumns.push('actions')
+    }
+    this.access_level = (this.userService.user_access==1) ? true : false
     this.get_table_data()
       
       this.dataSource.paginator = this.paginator;
