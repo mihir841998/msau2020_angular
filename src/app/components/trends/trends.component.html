@@ -1,14 +1,155 @@
-<div style="width:500px;height:500px">
-<div style="display: block">
-    <canvas mdbChart
-        [chartType]="chartType"
-        [datasets]="chartDatasets"
-        [labels]="chartLabels"
-        [colors]="chartColors"
-        [options]="chartOptions"
-        [legend]="true"
-        (chartHover)="chartHovered($event)"
-        (chartClick)="chartClicked($event)">
-    </canvas>
-  </div>
+<button (click)='trend_skill()'>View Trends for Skill</button>
+<button (click)='trend_location()'>View Trends for location</button>
+<button (click)='trend_hmid()'>View Trends for Hiring Manager</button>
+<button (click)='trend_demandid()'>View Trends for DemandID</button>
+
+<!-- 
+<div style="display:inline-block;height:300px;width:500px;margin-left: 200px;margin-right: 100px;" *ngIf='loadCompleted' >
+  <canvas mdbChart height='300' width='500'
+      [chartType]="chartType_bar"
+      [datasets]="chartDatasets"
+      [labels]="chartLabels"
+      [colors]="chartColors"
+      [options]="chartOptions"
+      [legend]="true"
+      (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)">
+  </canvas>
 </div>
+<div style="display:inline-block ;height:300px;width:500px" *ngIf='loadCompleted' >
+  <canvas mdbChart height='300' width='500'
+      [chartType]="chartType_pie"
+      [datasets]="chartDatasets"
+      [labels]="chartLabels"
+      [colors]="chartColors_pie"
+      [options]="chartOptions"
+      [legend]="true"
+      (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)">
+  </canvas>
+</div>
+<br>
+<div style="display:inline-block;height:300px;width:500px;margin-left: 200px;margin-right: 100px;" *ngIf='loadCompleted' >
+  <canvas mdbChart height='300' width='500'
+      [chartType]="chartType_doughnut"
+      [datasets]="chartDatasets"
+      [labels]="chartLabels"
+      [colors]="chartColors_doughnut"
+      [options]="chartOptions"
+      [legend]="true"
+      (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)">
+  </canvas>
+</div>
+<div style="display:inline-block ;height:300px;width:500px" *ngIf='loadCompleted' >
+  <canvas mdbChart height='300' width='500'
+      [chartType]="chartType_polar"
+      [datasets]="chartDatasets"
+      [labels]="chartLabels"
+      [colors]="chartColors_polar"
+      [options]="chartOptions"
+      [legend]="true"
+      (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)">
+  </canvas>
+</div>
+
+
+<!-- 
+
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <canvas mdbChart height="100px" *ngIf="loadCompleted"
+      [chartType]="chartType_bar"
+      [datasets]="chartDatasets"
+      [labels]="chartLabels"
+      [colors]="chartColors"
+      [options]="chartOptions"
+      [legend]="true"
+      (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)">
+  </canvas>     
+    </div>
+    <div class="col-md-10 mx-auto">
+      <canvas mdbChart  height="100" width="200" *ngIf="loadCompleted"
+            [chartType]="chartType_polar"
+            [datasets]="chartDatasets"
+            [labels]="chartLabels"
+            [colors]="chartColors_polar"
+            [options]="chartOptions"
+            [legend]="true"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"
+            >
+        </canvas> 
+      
+    </div>
+  </div>
+
+</div>
+
+<div class="row" >
+  <div class="col"  >    
+      <div *ngIf="loadCompleted" >
+          <canvas mdbChart height="100" *ngIf="loadCompleted"
+              [chartType]="chartType_bar"
+              [datasets]="chartDatasets"
+              [labels]="chartLabels"
+              [colors]="chartColors"
+              [options]="chartOptions"
+              [legend]="true"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)">
+          </canvas>        
+      </div>
+  </div>
+  <div class="col">    
+    <div  *ngIf="loadCompleted" >
+        <canvas mdbChart  height="100"
+            [chartType]="chartType_polar"
+            [datasets]="chartDatasets"
+            [labels]="chartLabels"
+            [colors]="chartColors_polar"
+            [options]="chartOptions"
+            [legend]="true"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"
+            >
+        </canvas>        
+    </div>
+</div>
+<div class="row" >
+  <div class="col"  >    
+      <div *ngIf="loadCompleted" >
+          <canvas mdbChart height="100"
+              [chartType]="chartType_pie"
+              [datasets]="chartDatasets"
+              [labels]="chartLabels"
+              [colors]="chartColors_pie"
+              [options]="chartOptions"
+              [legend]="true"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)">
+          </canvas>        
+      </div>
+  </div>
+  <div class="col">    
+    <div  *ngIf="loadCompleted" >
+        <canvas mdbChart  height="100"
+            [chartType]="chartType_doughnut"
+            [datasets]="chartDatasets"
+            [labels]="chartLabels"
+            [colors]="chartColors_doughnut"
+            [options]="chartOptions"
+            [legend]="true"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"
+            >
+        </canvas>        
+    </div>
+  </div>  
+</div>
+
+
+   -->

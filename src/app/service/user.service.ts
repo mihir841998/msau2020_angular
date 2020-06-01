@@ -58,10 +58,25 @@ export class UserService
     return this._http.post(this.base_url+'/onbordee',onbordee,{responseType: 'text'})
   }
 
-  get_trend()
+  get_trenddemandid()
+  {
+    console.log('get trend')
+    return this._http.get(this.base_url+'/trenddemandid')
+  }
+  get_trendskill()
   {
     console.log('get trend')
     return this._http.get(this.base_url+'/trendskill')
+  }
+  get_trendlocation()
+  {
+    console.log('get trend')
+    return this._http.get(this.base_url+'/trendlocation')
+  }
+  get_trendhmid()
+  {
+    console.log('get trend')
+    return this._http.get(this.base_url+'/trendhmid')
   }
   
 }

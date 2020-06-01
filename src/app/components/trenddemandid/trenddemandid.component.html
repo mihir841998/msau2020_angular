@@ -1,0 +1,53 @@
+
+<div style="display:inline-block;height:300px;width:500px;margin-left: 200px;margin-right: 100px;" *ngIf='loadCompleted' >
+    <canvas mdbChart height='300' width='500'
+        [chartType]="chartType_bar"
+        [datasets]="chartDatasets"
+        [labels]="chartLabels"
+        [colors]="chartColors"
+        [options]="chartOptions"
+        [legend]="true"
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)">
+    </canvas>
+  </div>
+  <div style="display:inline-block ;height:300px;width:500px" *ngIf='loadCompleted' >
+    <canvas mdbChart height='300' width='500'
+        [chartType]="chartType_pie"
+        [datasets]="chartDatasets"
+        [labels]="chartLabels"
+        [colors]="chartColors_pie"
+        [options]="chartOptions"
+        [legend]="true"
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)">
+    </canvas>
+  </div>
+  <br>
+  <div style="display:inline-block;height:300px;width:500px;margin-left: 200px;margin-right: 100px;" *ngIf='loadCompleted' >
+    <canvas mdbChart height='300' width='500'
+        [chartType]="chartType_doughnut"
+        [datasets]="chartDatasets"
+        [labels]="chartLabels"
+        [colors]="chartColors_doughnut"
+        [options]="chartOptions"
+        [legend]="true"
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)">
+    </canvas>
+  </div>
+  <div style="display:inline-block ;height:300px;width:500px" *ngIf='loadCompleted' >
+    <canvas mdbChart height='300' width='500'
+        [chartType]="chartType_polar"
+        [datasets]="chartDatasets"
+        [labels]="chartLabels"
+        [colors]="chartColors_polar"
+        [options]="chartOptions"
+        [legend]="true"
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)">
+    </canvas>
+  </div>
+  
+  
+  

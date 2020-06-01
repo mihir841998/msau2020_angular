@@ -10,6 +10,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +23,10 @@ import { ViewallusersComponent } from './components/viewallusers/viewallusers.co
 import { UserdetailsComponent } from './components/userdetails/userdetails.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TrendsComponent } from './components/trends/trends.component';
+import { TrendskillComponent } from './components/trendskill/trendskill.component';
+import { TrendhmidComponent } from './components/trendhmid/trendhmid.component';
+import { TrendlocationComponent } from './components/trendlocation/trendlocation.component';
+import { TrenddemandidComponent } from './components/trenddemandid/trenddemandid.component';
 
 let config = new AuthServiceConfig([
   {
@@ -43,7 +48,11 @@ export function provideConfig() {
     MainpageComponent,
     ViewallusersComponent,
     UserdetailsComponent,
-    TrendsComponent
+    TrendsComponent,
+    TrendskillComponent,
+    TrendhmidComponent,
+    TrendlocationComponent,
+    TrenddemandidComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +65,7 @@ export function provideConfig() {
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
+    NgxSpinnerModule,
     MDBBootstrapModule.forRoot()
   ],
   providers: [{
