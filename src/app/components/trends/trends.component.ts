@@ -54,6 +54,10 @@ export class TrendsComponent implements OnInit {
     console.log('trend_hmid')
     this.route.navigate(['trendhmid'])
   }
+  go_back()
+  {
+    this.route.navigate(['mainpage'])
+  }
 
   
 

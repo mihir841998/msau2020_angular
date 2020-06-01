@@ -23,4 +23,9 @@ export class MainpageComponent implements OnInit {
     this._router.navigate(['trends'])
   }
 
+  go_back()
+  {
+    this._router.navigate(['mainpage'])
+  }
+
 }

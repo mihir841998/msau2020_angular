@@ -4,6 +4,8 @@
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
   </mat-form-field>
   <button *ngIf='access_level' class="btn btn-primary" style="margin-left: 30px;" (click)='add_new_onbordee()'>Add New Onbordee</button>
+  <button *ngIf='access_level' class="btn btn-primary" style="margin-left: 30px;" (click)='add_new_onbordee()'>Go Back</button>
+  
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort >
     

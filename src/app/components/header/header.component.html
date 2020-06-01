@@ -1,13 +1,15 @@
 <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">   
-    </a>
-    <img src="assets/images/aulogo.png" height='50px' width='50px'>
-      <h1>MS AU Management</h1>
+    <a class="navbar-brand">  
+      <img src="assets/images/aulogo.png" height='50px' width='50px'> 
+    </a>    
+      <h1 style='margin-left: 200px;'>MS AU Management</h1>
     <nav class="navbar navbar-light bg-light">
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" style='margin-right:16px' type="submit">Search</button>
+        <form class="form-inline" #search = "ngForm"  (ngSubmit) = "search_by_id(search.value)">
+          <input  class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='id' ngModel>
+                
+          <input class="btn btn-outline-success my-2 my-sm-0" style='margin-right:16px' type="submit" value='Search'>
           <button type="button" class="btn btn-primary" (click)='signOut()'>Logout</button>
         </form>
       </nav>
   </nav>
+  

@@ -25,6 +25,7 @@ export class UserService
     email:'',
   }
   request=''
+  path=''
 
 
   constructor(private _http: HttpClient) { }
@@ -78,5 +79,9 @@ export class UserService
     console.log('get trend')
     return this._http.get(this.base_url+'/trendhmid')
   }
-  
+  get_onbordee_by_id(id)
+  {
+    console.log('get trend')
+    return this._http.get(this.base_url+'/onbordee'+id)
+  } 
 }
