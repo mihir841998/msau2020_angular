@@ -4,6 +4,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-viewallusers',
@@ -17,7 +18,7 @@ export class ViewallusersComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   access_level
-  constructor(private userService: UserService,private route:Router) { }
+  constructor(private userService: UserService,private route:Router,private toastr: ToastrService) { }
 
   ngOnInit(): void 
   {
@@ -60,13 +61,18 @@ export class ViewallusersComponent implements OnInit {
 
     delete_onbordee(onbordee)
     {
-      if(confirm("Are you sure  you want to delete the Onbordee "+name)) {
+      if(confirm("Are you sure  you want to delete the Onbordee "+name)) 
+      {
         console.log("Implement delete functionality here");
         console.log(onbordee.userid)
         this.userService.delete_onbordee(onbordee.userid).subscribe((res)=>{
             console.log(res)
             this.get_table_data()
-        })        
+        })  
+        
+        this.toastr.success('Onbordee with UserID '+ onbordee.userid +' has been deleted successfully', 'Deleted Successfully',{
+          timeOut: 3000
+        });     
       }
     }
     add_new_onbordee()
@@ -75,5 +81,11 @@ export class ViewallusersComponent implements OnInit {
         this.userService.request='post'
         this.route.navigate(['userdetails'])
 
+    }
+
+    back_to_main_page()
+    {
+      console.log('back to main page')
+      this.route.navigate(['mainpage'])
     }
 }

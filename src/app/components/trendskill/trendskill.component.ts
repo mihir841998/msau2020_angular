@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
+import { Router} from '@angular/router'
 
 @Component({
   selector: 'app-trendskill',
@@ -8,7 +9,7 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class TrendskillComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,private router:Router) { }
   data=[]
   label=[]
   loadCompleted:boolean = false;
@@ -29,6 +30,12 @@ export class TrendskillComponent implements OnInit {
   console.log(this.label)
   this.loadCompleted=true
     })
+  }
+
+  back_to_trend_page()
+  {
+    this.router.navigate(['trends'])
+    
   }
   public chartType_bar: string = 'bar';
   public chartType_polar: string = 'polarArea';

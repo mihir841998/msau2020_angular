@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../service/user.service'
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-userdetails',
@@ -24,7 +25,7 @@ export class UserdetailsComponent implements OnInit
     phone:'',
     email:'',
   }
-  constructor(private userService: UserService,private route:Router) { }
+  constructor(private userService: UserService,private route:Router,private toastr: ToastrService) { }
 
   ngOnInit(): void 
   {
@@ -48,10 +49,7 @@ export class UserdetailsComponent implements OnInit
 
   }
 
-  save(data)
-  {
-    this.userService.update_onbordee(data.userid,data)
-  }
+  
 
   onSave(data)
   {
@@ -60,9 +58,15 @@ export class UserdetailsComponent implements OnInit
       {
         console.log('put')
           this.userService.update_onbordee(data.userid,data).subscribe(res=>console.log(res))
+          this.toastr.success('Onbordee with UserID '+ data.userid +' has been updated successfully', 'Updated Successfully',{
+            timeOut: 3000
+          })
       }
       else
       {
+        this.toastr.success('Onbordee with UserID '+ data.userid +' has been added successfully', 'Added Successfully',{
+          timeOut: 3000
+        })
         console.log('post')
         this.userService.save_onbordee(data).subscribe(res=>console.log(res))
       }
