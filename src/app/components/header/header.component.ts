@@ -19,6 +19,8 @@ export class HeaderComponent implements OnInit {
   signOut()
   {
     this.authService.signOut();
+    this.userservice.logged_in=false
+    sessionStorage.setItem('loggedIn','false')
     this._router.navigate(['login'])
   }
   search_by_id(data)

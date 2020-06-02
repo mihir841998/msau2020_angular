@@ -11,17 +11,18 @@ import {TrendskillComponent} from './components/trendskill/trendskill.component'
 import {TrendlocationComponent} from './components/trendlocation/trendlocation.component'
 import {TrenddemandidComponent} from './components/trenddemandid/trenddemandid.component'
 import {TrendhmidComponent} from './components/trendhmid/trendhmid.component'
+import {LoginguardService} from'./service/loginguard.service'
 
 const routes: Routes = [
-  { path: 'login', component: LoginPageComponent },
-  { path: 'mainpage', component: MainpageComponent },
-  { path: 'allusers', component: ViewallusersComponent },
-  { path: 'userdetails', component: UserdetailsComponent },
-  { path: 'trends', component:TrendsComponent},
-  { path: 'trendskill', component:TrendskillComponent},
-  { path: 'trendlocation', component:TrendlocationComponent},
-  { path: 'trendhmid', component:TrendhmidComponent},
-  { path: 'trenddemandid', component:TrenddemandidComponent},
+  { path: 'login', component: LoginPageComponent},
+  { path: 'mainpage', component: MainpageComponent,canActivate:[LoginguardService]  },
+  { path: 'allusers', component: ViewallusersComponent,canActivate:[LoginguardService]  },
+  { path: 'userdetails', component: UserdetailsComponent,canActivate:[LoginguardService]  },
+  { path: 'trends', component:TrendsComponent,canActivate:[LoginguardService] },
+  { path: 'trendskill', component:TrendskillComponent,canActivate:[LoginguardService] },
+  { path: 'trendlocation', component:TrendlocationComponent,canActivate:[LoginguardService] },
+  { path: 'trendhmid', component:TrendhmidComponent,canActivate:[LoginguardService] },
+  { path: 'trenddemandid', component:TrenddemandidComponent,canActivate:[LoginguardService] },
   { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 

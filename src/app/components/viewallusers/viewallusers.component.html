@@ -3,8 +3,8 @@
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
   </mat-form-field>
-  <button *ngIf='access_level' class="btn btn-primary" style="margin-left: 30px;" (click)='add_new_onbordee()'> <i class="fa fa-plus" aria-hidden="true" style="margin-right: 10px;"></i>Add New Onbordee</button>
-  <button *ngIf='access_level' class="btn btn-primary" (click)='back_to_main_page()' style="margin-left: 30px;"><i class="fa fa-arrow-left" aria-hidden="true" style="margin-right: 10px;" ></i>Go Back</button>
+  <button *ngIf='access_level=="1"' class="btn btn-primary" style="margin-left: 30px;" (click)='add_new_onbordee()'> <i class="fa fa-plus" aria-hidden="true" style="margin-right: 10px;"></i>Add New Onbordee</button>
+  <button class="btn btn-primary" (click)='back_to_main_page()' style="margin-left: 30px;"><i class="fa fa-arrow-left" aria-hidden="true" style="margin-right: 10px;" ></i>Go Back</button>
   
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort >

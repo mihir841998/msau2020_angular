@@ -26,6 +26,7 @@ export class UserService
   }
   request=''
   path=''
+  logged_in=false
 
 
   constructor(private _http: HttpClient) { }
@@ -34,6 +35,7 @@ export class UserService
   {
     console.log(data)
     return this._http.post(this.base_url + "/check",data)
+    
   }
   get_all_onbordees():Observable<any>
   {

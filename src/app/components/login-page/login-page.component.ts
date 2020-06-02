@@ -13,6 +13,8 @@ import { GoogleLoginProvider } from "angularx-social-login";
 export class LoginPageComponent implements OnInit 
 {
   user:any
+  invalid=false
+  
 
   constructor(private userService :UserService,private _router: Router,private authService: AuthService) { }
 
@@ -27,10 +29,15 @@ export class LoginPageComponent implements OnInit
       if(body.access=="-1")
       {
         console.log("Invalid")
+        // sessionStorage.setItem('loggedIn','false')
+        this.invalid=true
       }
       else{
         console.log("Valid")
+        sessionStorage.setItem('loggedIn','true')
+        sessionStorage.setItem('access',body.access)
         this.userService.user_access=+body.access
+        this.userService.logged_in=true
         this._router.navigate(['mainpage'])
       }
     });
@@ -39,6 +46,8 @@ export class LoginPageComponent implements OnInit
     signInWithGoogle(): void {
       this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((response)=>
       {
+        this.userService.logged_in=true
+        sessionStorage.setItem('loggedIn','true')
         console.log(response)
         this.user = response
         this._router.navigate(['mainpage'])
