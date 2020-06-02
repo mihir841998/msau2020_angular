@@ -4,19 +4,24 @@
       <div class="form-group">
           <div style="text-align: center;"><h1>Login</h1></div>
         <label for="email" class="center-align">Accolite-ID</label>
-        <input type="text" class="form-control" name="id" placeholder="Enter email" id="email" ngModel>
+        <input type="text" #id='ngModel' required class="form-control" name="id" placeholder="Enter email" id="email" ngModel>
+        <!-- {{id.invalid}}
+        {{ id.touched}} -->
+        <div *ngIf='id.invalid && id.touched' class="alert alert-danger">ID is Required</div>
       </div>
       <div class="form-group">
         <label for="pwd">Password:</label>
-        <input type="password" class="form-control" name="password" placeholder="Enter password" id="pwd" ngModel>
+        
+        <input type="password" required #password='ngModel' class="form-control" name="password" placeholder="Enter password" id="pwd" ngModel>
+        <div *ngIf='password.invalid && password.touched' class="alert alert-danger">Password is Required</div>
       </div>
       <div class="form-group form-check">
         <label class="form-check-label">
           <input class="form-check-input" type="checkbox"> Remember me
         </label>
       </div>
-      <div *ngIf="invalid">
-        <h1>Invalid username and password Please try again</h1>
+      <div *ngIf="invalid" class="alert alert-danger">
+        Invalid username and password Please try again
       </div>
     
       <input type="submit" class="btn btn-primary" style='margin-right:16px' value="Submit">

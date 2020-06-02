@@ -81,9 +81,9 @@ export class UserService
     console.log('get trend')
     return this._http.get(this.base_url+'/trendhmid')
   }
-  get_onbordee_by_id(id)
+  get_access_by_email(email)
   {
-    console.log('get trend')
-    return this._http.get(this.base_url+'/onbordee'+id)
-  } 
+    console.log('in get_access_by_email ' + email)
+    return this._http.post(this.base_url+'/getaccess',{'email':email})
+  }   
 }

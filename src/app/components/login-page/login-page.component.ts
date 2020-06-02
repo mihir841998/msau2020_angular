@@ -24,7 +24,7 @@ export class LoginPageComponent implements OnInit
   onClickSubmit(data)
   {
     console.log(data)
-    this.userService.check_user_credentials(data).subscribe((body:{"result":string,"access":string})=>{
+    this.userService.check_user_credentials(data).subscribe((body:{"result":string,"access":string,"name":string})=>{
       console.log("mihir in login"+ body)
       if(body.access=="-1")
       {
@@ -36,6 +36,8 @@ export class LoginPageComponent implements OnInit
         console.log("Valid")
         sessionStorage.setItem('loggedIn','true')
         sessionStorage.setItem('access',body.access)
+        sessionStorage.setItem('name',body.name)
+        sessionStorage.setItem('first_time_to_main_page','true')
         this.userService.user_access=+body.access
         this.userService.logged_in=true
         this._router.navigate(['mainpage'])
@@ -46,9 +48,16 @@ export class LoginPageComponent implements OnInit
     signInWithGoogle(): void {
       this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((response)=>
       {
-        this.userService.logged_in=true
+        
         sessionStorage.setItem('loggedIn','true')
-        console.log(response)
+        sessionStorage.setItem('first_time_to_main_page','true')
+        sessionStorage.setItem("name",response.name)
+        console.log('in sign in with google '+response.email)
+        this.userService.get_access_by_email(response.email).subscribe((res:{name:string,access:string})=>{
+          console.log(res)
+          
+          sessionStorage.setItem("access",res.access)
+        })
         this.user = response
         this._router.navigate(['mainpage'])
       });
