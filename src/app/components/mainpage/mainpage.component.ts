@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-// import {HeaderComponent } from '../header/header.component'
+import {HeaderComponent } from '../header/header.component'
 
 @Component({
   selector: 'app-mainpage',
@@ -14,7 +14,7 @@ export class MainpageComponent implements OnInit {
 
   ngOnInit(): void 
   {
-    // this.header.display_hello_logout()
+    // this.header.isloggedin=true
     if(sessionStorage.getItem('first_time_to_main_page')=='true')
     {
       // this.header.display_hello_logout(true)
