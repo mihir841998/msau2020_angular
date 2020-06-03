@@ -4,16 +4,20 @@
       <div class="form-group">
           <div style="text-align: center;"><h1>Login</h1></div>
         <label for="email" class="center-align">Accolite-ID</label>
-        <input type="text" #id='ngModel' required class="form-control" name="id" placeholder="Enter email" id="email" ngModel>
-        <!-- {{id.invalid}}
-        {{ id.touched}} -->
-        <div *ngIf='id.invalid && id.touched' class="alert alert-danger">ID is Required</div>
+        <input type="text" #id='ngModel' minlength='4' required class="form-control" name="id" placeholder="Enter email" id="email" ngModel [class.is-invalid]='id.invalid && id.touched'>
+        <div *ngIf='id.errors && (id.invalid || id.touched)'>
+          <small class='text-danger' *ngIf='id.errors.required && id.touched'>ID is required</small>
+          <small class='text-danger' *ngIf='id.errors.minlength'>ID should be minimum 4 digits</small>
+        </div>
       </div>
       <div class="form-group">
         <label for="pwd">Password:</label>
         
-        <input type="password" required #password='ngModel' class="form-control" name="password" placeholder="Enter password" id="pwd" ngModel>
-        <div *ngIf='password.invalid && password.touched' class="alert alert-danger">Password is Required</div>
+        <input type="password" required #password='ngModel' class="form-control" name="password" placeholder="Enter password" id="pwd" ngModel [class.is-invalid]='password.invalid && password.touched' >
+        <div *ngIf='password.errors && (password.invalid || password.touched)'>
+          <small class='text-danger' *ngIf='password.errors.required && password.touched'>Password is required</small>
+          <!-- <small class='text-danger' *ngIf='password.errors.pattern'>Weak Password</small> -->
+        </div>
       </div>
       <div class="form-group form-check">
         <label class="form-check-label">

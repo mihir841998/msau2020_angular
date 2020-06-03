@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
+import {Router} from'@angular/router'
 
 @Component({
   selector: 'app-trenddemandid',
@@ -8,7 +9,7 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class TrenddemandidComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,private router:Router) { }
 
   data=[]
   label=[]
@@ -30,6 +31,11 @@ export class TrenddemandidComponent implements OnInit {
   console.log(this.label)
   this.loadCompleted=true
     })
+  }
+  back()
+  {
+    this.router.navigate(['trends'])
+    
   }
 
   public chartType_bar: string = 'bar';

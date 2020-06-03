@@ -1,4 +1,4 @@
-<!-- <div><button class="btn btn-primary" (click)='back_to_trend_page()' style="margin-left: 30px;"><i class="fa fa-arrow-left" aria-hidden="true" style="margin-right: 10px;" ></i>Go Back</button></div> -->
+<i class="fa fa-arrow-left" aria-hidden="true" style="font-size:30px" (click)='back()'></i>
 <div style="display:inline-block;height:300px;width:500px;margin-left: 200px;margin-right: 100px;" *ngIf='loadCompleted' >
     <canvas mdbChart height='300' width='500'
         [chartType]="chartType_bar"

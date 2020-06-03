@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
+import {Router} from '@angular/router'
 @Component({
   selector: 'app-trendlocation',
   templateUrl: './trendlocation.component.html',
@@ -7,7 +8,7 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class TrendlocationComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,private router:Router) { }
   data=[]
   label=[]
   loadCompleted:boolean = false;
@@ -27,6 +28,11 @@ export class TrendlocationComponent implements OnInit {
   console.log(this.label)
   this.loadCompleted=true
     })
+  }
+  back()
+  {
+    this.router.navigate(['trends'])
+    
   }
   public chartType_bar: string = 'bar';
   public chartType_polar: string = 'polarArea';

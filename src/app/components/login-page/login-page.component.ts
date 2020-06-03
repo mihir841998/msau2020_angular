@@ -40,6 +40,8 @@ export class LoginPageComponent implements OnInit
         sessionStorage.setItem('first_time_to_main_page','true')
         this.userService.user_access=+body.access
         this.userService.logged_in=true
+        this.userService.username=body.name
+        // this.userService.activate_header_elements()
         this._router.navigate(['mainpage'])
       }
     });
@@ -53,6 +55,8 @@ export class LoginPageComponent implements OnInit
         sessionStorage.setItem('first_time_to_main_page','true')
         sessionStorage.setItem("name",response.name)
         console.log('in sign in with google '+response.email)
+        this.userService.logged_in=true
+        this.userService.username=response.name
         this.userService.get_access_by_email(response.email).subscribe((res:{name:string,access:string})=>{
           console.log(res)
           

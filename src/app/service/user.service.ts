@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { HeaderComponent } from '../components/header/header.component'
 
 
 @Injectable({
@@ -27,9 +28,10 @@ export class UserService
   request=''
   path=''
   logged_in=false
+  username=''
 
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient,) { }
 
   check_user_credentials(data:object):Observable<any>
   {
@@ -86,4 +88,9 @@ export class UserService
     console.log('in get_access_by_email ' + email)
     return this._http.post(this.base_url+'/getaccess',{'email':email})
   }   
+  // activate_header_elements()
+  // {
+  //   this.header.display_hello_logout()
+
+  // }
 }

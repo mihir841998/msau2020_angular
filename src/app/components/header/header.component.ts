@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private _router: Router,private authService: AuthService,private userservice: UserService) { }
+  constructor(private _router: Router,private authService: AuthService,public userservice: UserService) { }
 
   isloggedin = false
   
@@ -24,14 +24,12 @@ export class HeaderComponent implements OnInit {
   {
     this.authService.signOut();    
     sessionStorage.clear()
-    
+    this.userservice.logged_in=false
+    this.userservice.username=''
     this._router.navigate(['login'])
   }
 
-  display_hello_logout()
-  {
-      this.isloggedin = true
-  }
+  
   
 
 }

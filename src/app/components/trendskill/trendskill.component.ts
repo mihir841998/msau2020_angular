@@ -32,7 +32,7 @@ export class TrendskillComponent implements OnInit {
     })
   }
 
-  back_to_trend_page()
+  back()
   {
     this.router.navigate(['trends'])
     
