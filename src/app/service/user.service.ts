@@ -29,6 +29,7 @@ export class UserService
   path=''
   logged_in=false
   username=''
+  body
 
 
   constructor(private _http: HttpClient,) { }
@@ -42,25 +43,26 @@ export class UserService
   get_all_onbordees():Observable<any>
   {
     console.log('get_all_onbordees')
-    return this._http.get(this.base_url + "/onbordee");
+    console.log(sessionStorage.getItem('id'))
+    return this._http.get("http://localhost:8080/MSAU2020/api/onbordees/"+sessionStorage.getItem('id'));
   }
   delete_onbordee(id)
   {
 
     console.log('delete_onbordee'+id)
-    return this._http.delete("http://localhost:8080/MSAU2020/api/onbordee/"+id,{responseType: 'text'});
+    return this._http.delete("http://localhost:8080/MSAU2020/api/onbordee/"+id+"/"+sessionStorage.getItem('id'),{responseType: 'text'});
   }
   update_onbordee(id,onbordee)
   {
     console.log('update_onbordee '+id)
     console.log(onbordee)
-    return this._http.put(this.base_url + "/onbordee/" + id,onbordee,{responseType: 'text'});
+    return this._http.put(this.base_url + "/onbordee/" + id+"/"+sessionStorage.getItem('id'),onbordee,{responseType: 'text'});
   }
   save_onbordee(onbordee)
   {
     console.log('save onbordee')
     console.log(onbordee)
-    return this._http.post(this.base_url+'/onbordee',onbordee,{responseType: 'text'})
+    return this._http.post(this.base_url+'/onbordee/'+sessionStorage.getItem('id'),onbordee,{responseType: 'text'})
   }
 
   get_trenddemandid()
@@ -87,10 +89,10 @@ export class UserService
   {
     console.log('in get_access_by_email ' + email)
     return this._http.post(this.base_url+'/getaccess',{'email':email})
+  }
+  get_log_by_id():Observable<any>
+  {
+    return this._http.get(this.base_url+'/log/'+sessionStorage.getItem('id'))
   }   
-  // activate_header_elements()
-  // {
-  //   this.header.display_hello_logout()
 
-  // }
 }

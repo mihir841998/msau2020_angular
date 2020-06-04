@@ -56,7 +56,7 @@ export class TrendsComponent implements OnInit {
   }
   go_back()
   {
-    this.route.navigate(['mainpage'])
+    this.route.navigate(['allusers'])
   }
 
   

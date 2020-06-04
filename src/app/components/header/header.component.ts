@@ -17,7 +17,9 @@ export class HeaderComponent implements OnInit {
   isloggedin = false
   
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+    // sessionStorage.setItem('loggedIn','false')
   }
 
   signOut()
@@ -28,6 +30,35 @@ export class HeaderComponent implements OnInit {
     this.userservice.username=''
     this._router.navigate(['login'])
   }
+
+  islogged_in()
+  {
+    if(sessionStorage.getItem('loggedIn')=='true')
+    {
+      return true
+    }
+    else{
+      return false
+    }
+  }
+  get_name()
+  {
+    return sessionStorage.getItem('name')
+  }
+
+  onbordee_page()
+  {
+    this._router.navigate(['allusers'])
+  }
+  trends_page()
+  {
+    this._router.navigate(['trends'])
+  }
+  log_page()
+  {
+    this._router.navigate(['logpage'])
+  }
+
 
   
   

@@ -12,6 +12,7 @@ import {TrendlocationComponent} from './components/trendlocation/trendlocation.c
 import {TrenddemandidComponent} from './components/trenddemandid/trenddemandid.component'
 import {TrendhmidComponent} from './components/trendhmid/trendhmid.component'
 import {LoginguardService} from'./service/loginguard.service'
+import {LogpageComponent} from './components/logpage/logpage.component'
 
 const routes: Routes = [
   { path: 'login', component: LoginPageComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'trendlocation', component:TrendlocationComponent,canActivate:[LoginguardService] },
   { path: 'trendhmid', component:TrendhmidComponent,canActivate:[LoginguardService] },
   { path: 'trenddemandid', component:TrenddemandidComponent,canActivate:[LoginguardService] },
+  { path: 'logpage', component:LogpageComponent,canActivate:[LoginguardService] },
   { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 

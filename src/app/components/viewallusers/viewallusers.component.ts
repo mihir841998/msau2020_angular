@@ -22,6 +22,15 @@ export class ViewallusersComponent implements OnInit {
 
   ngOnInit(): void 
   {
+    if(sessionStorage.getItem('first_time_to_main_page')=='true')
+    {
+      // this.header.display_hello_logout(true)
+      console.log('in onint of mainpage '+ sessionStorage.getItem('name'))
+      this.toastr.success('', 'Welcome '+ sessionStorage.getItem('name'),{
+        timeOut: 5000
+      });
+      sessionStorage.setItem('first_time_to_main_page','false')
+    }
     
     console.log('in onint of viewallusers access' + this.userService.user_access)
     this.access_level=sessionStorage.getItem('access')

@@ -28,6 +28,7 @@ import { TrendskillComponent } from './components/trendskill/trendskill.componen
 import { TrendhmidComponent } from './components/trendhmid/trendhmid.component';
 import { TrendlocationComponent } from './components/trendlocation/trendlocation.component';
 import { TrenddemandidComponent } from './components/trenddemandid/trenddemandid.component';
+import { LogpageComponent } from './components/logpage/logpage.component';
 
 let config = new AuthServiceConfig([
   {
@@ -53,7 +54,8 @@ export function provideConfig() {
     TrendskillComponent,
     TrendhmidComponent,
     TrendlocationComponent,
-    TrenddemandidComponent
+    TrenddemandidComponent,
+    LogpageComponent
   ],
   imports: [
     BrowserModule,
