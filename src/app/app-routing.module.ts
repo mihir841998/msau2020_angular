@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import {LoginPageComponent} from './components/login-page/login-page.component'
 
-import {MainpageComponent} from './components/mainpage/mainpage.component'
+// import {MainpageComponent} from './components/mainpage/mainpage.component'
 import {ViewallusersComponent} from './components/viewallusers/viewallusers.component'
 import {UserdetailsComponent} from './components/userdetails/userdetails.component'
 import {TrendsComponent} from './components/trends/trends.component'
@@ -16,7 +16,7 @@ import {LogpageComponent} from './components/logpage/logpage.component'
 
 const routes: Routes = [
   { path: 'login', component: LoginPageComponent},
-  { path: 'mainpage', component: MainpageComponent,canActivate:[LoginguardService]  },
+  // { path: 'mainpage', component: MainpageComponent,canActivate:[LoginguardService]  },
   { path: 'allusers', component: ViewallusersComponent,canActivate:[LoginguardService]  },
   { path: 'userdetails', component: UserdetailsComponent,canActivate:[LoginguardService]  },
   { path: 'trends', component:TrendsComponent,canActivate:[LoginguardService] },

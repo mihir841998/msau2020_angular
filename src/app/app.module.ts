@@ -18,8 +18,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { MainpageComponent } from './components/mainpage/mainpage.component';
+// import { FooterComponent } from './components/footer/footer.component';
+// import { MainpageComponent } from './components/mainpage/mainpage.component';
 import { ViewallusersComponent } from './components/viewallusers/viewallusers.component';
 import { UserdetailsComponent } from './components/userdetails/userdetails.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -46,8 +46,8 @@ export function provideConfig() {
     AppComponent,
     LoginPageComponent,
     HeaderComponent,
-    FooterComponent,
-    MainpageComponent,
+    // FooterComponent,
+    // MainpageComponent,
     ViewallusersComponent,
     UserdetailsComponent,
     TrendsComponent,

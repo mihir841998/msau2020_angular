@@ -18,11 +18,19 @@ describe('LoginguardService', () => {
     service = TestBed.inject(LoginguardService);
   });
 
-  it('test canAcctivate of loginguard', () => 
+  it('test canAcctivate for logged_in=true of loginguard', () => 
   {
+    sessionStorage.setItem('loggedIn','true')
     const result = service.canActivate();
-    expect(result).toEqual(false)
+    expect(result).toEqual(true)    
+    sessionStorage.clear()
+  });
 
-    
+  it('test canAcctivate for logged_in=false of loginguard', () => 
+  {
+    // sessionStorage.setItem('loggedIn','true')
+    const result = service.canActivate();
+    expect(result).toEqual(false)    
+    // sessionStorage.clear()
   });
 });
