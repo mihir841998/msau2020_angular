@@ -60,12 +60,13 @@ export class LoginPageComponent implements OnInit
         this.userService.username=response.name
         this.userService.get_access_by_email(response.email).subscribe((res:{name:string,access:string,id:string})=>{
           console.log(res)
-          
+          this.userService.user_access=+res.access
           sessionStorage.setItem("access",res.access)
           sessionStorage.setItem("id",res.id)
+          this._router.navigate(['allusers'])
         })
-        this.user = response
-        this._router.navigate(['allusers'])
+        // this.user = response
+        
       });
     }
    

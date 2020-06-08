@@ -93,6 +93,16 @@ export class UserService
   get_log_by_id():Observable<any>
   {
     return this._http.get(this.base_url+'/log/'+sessionStorage.getItem('id'))
-  }   
+  }  
+  
+  get_demand():Observable<any>
+  {
+    return this._http.get(this.base_url+'/demand')
+  }
+
+  get_hm():Observable<any>
+  {
+    return this._http.get(this.base_url+'/hm')
+  }
 
 }

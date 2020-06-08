@@ -18,7 +18,7 @@
   <a class="navbar-brand" (click)='onbordee_page()' *ngIf='islogged_in()' >Onbordee</a>
   <a class="navbar-brand" (click)='trends_page()' *ngIf='islogged_in()' >Trends</a>
   <a class="navbar-brand" (click)='log_page()' *ngIf='islogged_in()' >Logs</a>
-  <span style='margin-left: 900px;'>Hi!{{get_name()}}</span>
+  <span style='margin-left: 900px;'>{{get_name()}}</span>
   <span style='margin-left: 100px;color:blanchedalmond;'>
     <button *ngIf='islogged_in()' type="button" class="btn btn-primary" (click)='signOut()'>Logout</button>
   </span> 

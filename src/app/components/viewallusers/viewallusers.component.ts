@@ -47,6 +47,7 @@ export class ViewallusersComponent implements OnInit {
 
     get_table_data()
     {
+      console.log('in get table data of viewallusers')
       this.userService.get_all_onbordees().subscribe(
         (res)=>{
           console.log(res)
