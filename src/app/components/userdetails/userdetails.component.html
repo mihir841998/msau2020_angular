@@ -9,7 +9,13 @@
                     </div>
                     <div class="col-sm-6">
                         <label for="demandid">Demand ID</label>
-                        <input type="text" name="demandid" class="form-control" id="demandid" placeholder="Demand ID" [(ngModel)]='user.demandid'>
+                        <!-- <input type="text" name="demandid" class="form-control" id="demandid" placeholder="Demand ID" [(ngModel)]='user.demandid'> -->
+                        <select  class="form-control" name="demandid" placeholder="Demand ID" id="demandid" [(ngModel)]='user.demandid' style='height:40px;width:445px'>
+                            <option value="1">Morgan Stanley-Web developer</option>
+                            <option value="2">Nomura-Data Science</option>
+                            <option value="3">Goldman Sachs-Java</option>
+                            <option value="4">Microsoft-AI</option>
+                          </select>
                        
                     </div>
                 </div>
@@ -45,8 +51,13 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-6">
-                        <label for="hmid">Hiring Manager ID</label>
-                        <input type="number" class="form-control" name="hmid" id="hmid" placeholder="Hiring Manager ID" [(ngModel)]='user.hmid'>
+                        <label for="hmid">Hiring Manager ID</label><br>
+                        <!-- <input type="number" class="form-control" name="hmid" id="hmid" placeholder="Hiring Manager ID" [(ngModel)]='user.hmid'> -->
+                        <select class="form-control" name="hmid" id="hmid" [(ngModel)]='user.hmid' style='height:40px;width:445px'>
+                            <option value="2">Mit Shah</option>
+                            <option value="1">Preksha Jain</option>
+                            <option value="3">Paresh Mishra</option>
+                          </select>
                     </div>
                     <div class="col-sm-6">
                         <label for="eta">ETA for Arrival</label>
