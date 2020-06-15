@@ -8,13 +8,16 @@
                         <input type="text" placeholder="Street Address" class="form-control" name="userid" id="userid" [(ngModel)]='user.userid' >
                     </div>
                     <div class="col-sm-6">
-                        <label for="demandid">Demand ID</label>
+                        <label for="demandid">Demand</label>
                         <!-- <input type="text" name="demandid" class="form-control" id="demandid" placeholder="Demand ID" [(ngModel)]='user.demandid'> -->
                         <select  class="form-control" name="demandid" placeholder="Demand ID" id="demandid" [(ngModel)]='user.demandid' style='height:40px;width:445px'>
-                            <option value="1">Morgan Stanley-Web developer</option>
+                            <option *ngFor="let h of demand" [value]="h.did.toString()">
+                                {{h.clientname+'-'+h.role}}
+                              </option>
+                            <!-- <option value="1">Morgan Stanley-Web developer</option>
                             <option value="2">Nomura-Data Science</option>
                             <option value="3">Goldman Sachs-Java</option>
-                            <option value="4">Microsoft-AI</option>
+                            <option value="4">Microsoft-AI</option> -->
                           </select>
                        
                     </div>
@@ -51,12 +54,15 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-6">
-                        <label for="hmid">Hiring Manager ID</label><br>
+                        <label for="hmid">Hiring Manager</label><br>
                         <!-- <input type="number" class="form-control" name="hmid" id="hmid" placeholder="Hiring Manager ID" [(ngModel)]='user.hmid'> -->
                         <select class="form-control" name="hmid" id="hmid" [(ngModel)]='user.hmid' style='height:40px;width:445px'>
-                            <option value="2">Mit Shah</option>
+                            <option *ngFor="let h of hmid" [value]="h.hmid.toString()">
+                                {{h.name}}
+                              </option>
+                            <!-- <option value="2">Mit Shah</option>
                             <option value="1">Preksha Jain</option>
-                            <option value="3">Paresh Mishra</option>
+                            <option value="3">Paresh Mishra</option> -->
                           </select>
                     </div>
                     <div class="col-sm-6">

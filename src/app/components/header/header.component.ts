@@ -41,6 +41,17 @@ export class HeaderComponent implements OnInit {
       return false
     }
   }
+  has_access()
+  {
+    if(sessionStorage.getItem('access')=='1')
+    {
+      return true
+    }
+    else{
+      return false
+    }
+
+  }
   get_name()
   {
     return sessionStorage.getItem('name')
@@ -57,5 +68,14 @@ export class HeaderComponent implements OnInit {
   log_page()
   {
     this._router.navigate(['logpage'])
+  }
+
+  usermanagement_page()
+  {
+    this._router.navigate(['usermanagement'])
+  }
+  hm_page()
+  {
+    this._router.navigate(['hiringmanager'])
   }
 }

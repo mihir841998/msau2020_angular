@@ -25,13 +25,30 @@ export class UserdetailsComponent implements OnInit
     phone:'',
     email:'',
   }
+  hmid:any
+  demand:any
+  s_demand=false
+  s_hmid=false
   constructor(private userService: UserService,private route:Router,private toastr: ToastrService) { }
 
   ngOnInit(): void 
   {
+    this.userService.get_demand().subscribe(
+      data=>{
+        this.demand=data
+        this.s_demand=true
+      }
+    )
+    this.userService.get_hm().subscribe(data=>
+      {
+        this.hmid=data
+        this.s_hmid=true
+      })
     console.log("in userdetails")
     console.log(this.userService.onbordee)
     this.user=this.userService.onbordee
+    this.demand=this.userService.demand
+    this.hmid= this.userService.hm
     this.userService.onbordee={
       userid:'',
       demandid:'',

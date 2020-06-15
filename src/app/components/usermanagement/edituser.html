@@ -1,0 +1,39 @@
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <form #user="ngForm" (ngSubmit)="onSave(user.value)">
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="id">User ID</label>
+                        <input type="text" placeholder="user ID" class="form-control" name="id" id="id" [(ngModel)]='userdetails.id' >
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="name">Name</label>
+                        <input type="text" placeholder="Name" class="form-control" name="name" id="name" [(ngModel)]='userdetails.name' >
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="name">Email</label>
+                        <input type="text" class="form-control" name="email" id="email" placeholder="email" [(ngModel)]='userdetails.email'>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="access">Access</label>
+                        <input type="text" class="form-control" name="access" id="access" placeholder="Access" [(ngModel)]='userdetails.access'>
+                    </div>
+                </div>
+                <!-- <div class="form-group row" *ngIf='is_post'>
+                    <div class="col-sm-6">
+                        <label for="password">Password</label>
+                        <input type="text" class="form-control" name="password" id="password" placeholder="password" [(ngModel)]='userdetails.password'>
+                    </div>                    
+                </div> -->
+               
+                <input type="button" value='Close' class="btn btn-primary px-4" [mat-dialog-close]="true">
+                <input type="submit" value='Save' class="btn btn-primary px-4 float-right" [mat-dialog-close]="true">
+                
+            </form>
+        </div>
+    </div>
+</div>
+

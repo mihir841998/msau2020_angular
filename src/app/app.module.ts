@@ -12,13 +12,16 @@ import { MatInputModule } from '@angular/material/input';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import { AgGridModule } from 'ag-grid-angular';
 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { HeaderComponent } from './components/header/header.component';
-// import { FooterComponent } from './components/footer/footer.component';
+import { FooterComponent,DialogContentExampleDialog,Contact } from './components/footer/footer.component';
 // import { MainpageComponent } from './components/mainpage/mainpage.component';
 import { ViewallusersComponent } from './components/viewallusers/viewallusers.component';
 import { UserdetailsComponent } from './components/userdetails/userdetails.component';
@@ -29,6 +32,8 @@ import { TrendhmidComponent } from './components/trendhmid/trendhmid.component';
 import { TrendlocationComponent } from './components/trendlocation/trendlocation.component';
 import { TrenddemandidComponent } from './components/trenddemandid/trenddemandid.component';
 import { LogpageComponent } from './components/logpage/logpage.component';
+import { UsermanagementComponent,AddUser,EditUser } from './components/usermanagement/usermanagement.component';
+import { HiringmanagerComponent,AddHm,EditHm } from './components/hiringmanager/hiringmanager.component';
 
 let config = new AuthServiceConfig([
   {
@@ -46,7 +51,7 @@ export function provideConfig() {
     AppComponent,
     LoginPageComponent,
     HeaderComponent,
-    // FooterComponent,
+    FooterComponent,
     // MainpageComponent,
     ViewallusersComponent,
     UserdetailsComponent,
@@ -55,8 +60,17 @@ export function provideConfig() {
     TrendhmidComponent,
     TrendlocationComponent,
     TrenddemandidComponent,
-    LogpageComponent
+    LogpageComponent,
+    DialogContentExampleDialog,
+    Contact,
+    UsermanagementComponent,
+    AddUser,
+    EditUser,
+    HiringmanagerComponent,
+    AddHm,
+    EditHm
   ],
+  entryComponents: [DialogContentExampleDialog,Contact,EditUser,AddUser,AddHm,EditHm],
   imports: [
     BrowserModule,
     AppRoutingModule,HttpClientModule,
@@ -70,7 +84,10 @@ export function provideConfig() {
     BrowserAnimationsModule,
     NgxSpinnerModule,
     MDBBootstrapModule.forRoot(),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatDialogModule,
+    MatButtonModule,
+    AgGridModule.withComponents([]),
   ],
   providers: [{
     provide: AuthServiceConfig,

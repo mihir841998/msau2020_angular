@@ -1,0 +1,34 @@
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <form #hm="ngForm" (ngSubmit)="onSave(hm.value)">
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="hmid">HM ID</label>
+                        <input type="text" placeholder="Hm ID" class="form-control" name="hmid" id="hmid" [(ngModel)]='hmdetails.hmid' >
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="name">Name</label>
+                        <input type="text" placeholder="Name" class="form-control" name="name" id="name" [(ngModel)]='hmdetails.name' >
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" name="email" id="email" placeholder="email" [(ngModel)]='hmdetails.email'>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="phone">Phone</label>
+                        <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone" [(ngModel)]='hmdetails.phone'>
+                    </div>
+                </div>
+                
+               
+                <input type="button" value='Close' class="btn btn-primary px-4" [mat-dialog-close]="true">
+                <input type="submit" value='Save' class="btn btn-primary px-4 float-right" [mat-dialog-close]="true">
+                
+            </form>
+        </div>
+    </div>
+</div>
+
