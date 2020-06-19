@@ -50,25 +50,31 @@ export class LoginPageComponent implements OnInit
   }
 
     signInWithGoogle(): void {
-      this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((response)=>
+      this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
+        (response)=>
       {
         
-        sessionStorage.setItem('loggedIn','true')
-        sessionStorage.setItem('first_time_to_main_page','true')
-        sessionStorage.setItem("name",response.name)
-        console.log('in sign in with google '+response.email)
-        this.userService.logged_in=true
-        this.userService.username=response.name
-        this.userService.get_access_by_email(response.email).subscribe((res:{name:string,access:string,id:string})=>{
-          console.log(res)
-          this.userService.user_access=+res.access
-          sessionStorage.setItem("access",res.access)
-          sessionStorage.setItem("id",res.id)
-          this._router.navigate(['allusers'])
-        })
+          sessionStorage.setItem('loggedIn','true')
+          sessionStorage.setItem('first_time_to_main_page','true')
+          sessionStorage.setItem("name",response.name)
+          console.log('in sign in with google '+response.email)
+          this.userService.logged_in=true
+          this.userService.username=response.name
+          this.userService.get_access_by_email(response.email).subscribe((res:{name:string,access:string,id:string})=>{
+            console.log(res)
+            this.userService.user_access=+res.access
+            sessionStorage.setItem("access",res.access)
+            sessionStorage.setItem("id",res.id)
+            this._router.navigate(['allusers'])
+          }  
+        )
         // this.user = response
         
-      });
+      }
+    //   (err) => {
+    //     console.log(err)
+    //  }
+      );
     }
    
    

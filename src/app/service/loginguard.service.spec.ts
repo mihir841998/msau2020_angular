@@ -28,9 +28,9 @@ describe('LoginguardService', () => {
 
   it('test canAcctivate for logged_in=false of loginguard', () => 
   {
-    // sessionStorage.setItem('loggedIn','true')
+    sessionStorage.setItem('loggedIn','false')
     const result = service.canActivate();
     expect(result).toEqual(false)    
-    // sessionStorage.clear()
+    sessionStorage.clear()
   });
 });

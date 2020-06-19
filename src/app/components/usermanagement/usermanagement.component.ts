@@ -68,8 +68,7 @@ export class UsermanagementComponent implements OnInit {
       dialogRef.afterClosed().subscribe(result => {
         console.log(`Dialog result: ${result}`);
         this.get_table_data()
-      });
-      
+      });      
     }
 
     delete_user(user)

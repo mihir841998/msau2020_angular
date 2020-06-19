@@ -17,6 +17,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { AgGridModule } from 'ag-grid-angular';
 
 
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
@@ -88,7 +90,7 @@ export function provideConfig() {
     MatDialogModule,
     MatButtonModule,
     AgGridModule.withComponents([]),
-  ],
+   ],
   providers: [{
     provide: AuthServiceConfig,
     useFactory: provideConfig

@@ -40,6 +40,42 @@ describe('UserService', () => {
 
   });
 
+  it('test for get all users', () => {
+    const mockData = {
+      name: 'Mihir',
+      surname: 'Maniar'
+    };
+    service.get_all_users().subscribe(data=>
+      {
+        expect(data.name).toEqual('Mihir');
+        expect(data.surname).toEqual('Maniar');
+      })
+      const req = httpTestingController.expectOne('http://localhost:8080/MSAU2020/api/getuser');
+
+      expect(req.request.method).toEqual('GET');
+
+      req.flush(mockData);
+
+  });
+
+  it('test for get all hiring manager', () => {
+    const mockData = {
+      name: 'Mihir',
+      surname: 'Maniar'
+    };
+    service.get_all_hm().subscribe(data=>
+      {
+        expect(data.name).toEqual('Mihir');
+        expect(data.surname).toEqual('Maniar');
+      })
+      const req = httpTestingController.expectOne('http://localhost:8080/MSAU2020/api/gethm');
+
+      expect(req.request.method).toEqual('GET');
+
+      req.flush(mockData);
+
+  });
+
   it('test for check_user_credentials', () => {
     const mockData = {
       result: 'success',
@@ -77,6 +113,36 @@ describe('UserService', () => {
 
   });
 
+  it('test for delete user', () => {
+    const text = "Deleted Successfully" 
+    const id=1
+    service.delete_user(id).subscribe(data=>
+      {
+        expect(data).toEqual('Deleted Successfully');        
+      })
+      const req = httpTestingController.expectOne('http://localhost:8080/MSAU2020/api/userdelete/1/null');
+
+      expect(req.request.method).toEqual('DELETE');
+
+      req.flush(text);
+
+  });
+
+  it('test for delete hm', () => {
+    const text = "Deleted Successfully" 
+    const id=1
+    service.delete_hm(id).subscribe(data=>
+      {
+        expect(data).toEqual('Deleted Successfully');        
+      })
+      const req = httpTestingController.expectOne('http://localhost:8080/MSAU2020/api/hmdelete/1/null');
+
+      expect(req.request.method).toEqual('DELETE');
+
+      req.flush(text);
+
+  });
+
   it('test for update onbordee', () => {
     const text = "Updated Successfully" 
     const id=1
@@ -96,6 +162,44 @@ describe('UserService', () => {
 
   });
 
+  it('test for update user', () => {
+    const text = "Updated Successfully" 
+    const id=1
+    const data={
+      name:'mihir',
+      surname:'maniar'
+    }
+    service.update_user(id,data).subscribe(data=>
+      {
+        expect(data).toEqual('Updated Successfully');        
+      })
+      const req = httpTestingController.expectOne('http://localhost:8080/MSAU2020/api/userupdate/1/null');
+
+      expect(req.request.method).toEqual('PUT');
+
+      req.flush(text);
+
+  });
+
+  it('test for update hm', () => {
+    const text = "Updated Successfully" 
+    const id=1
+    const data={
+      name:'mihir',
+      surname:'maniar'
+    }
+    service.update_hm(id,data).subscribe(data=>
+      {
+        expect(data).toEqual('Updated Successfully');        
+      })
+      const req = httpTestingController.expectOne('http://localhost:8080/MSAU2020/api/hmupdate/1/null');
+
+      expect(req.request.method).toEqual('PUT');
+
+      req.flush(text);
+
+  });
+
 
   it('test for save onbordee', () => {
     const text = "Saved Successfully" 
@@ -108,6 +212,40 @@ describe('UserService', () => {
         expect(data).toEqual('Saved Successfully');        
       })
       const req = httpTestingController.expectOne('http://localhost:8080/MSAU2020/api/onbordee/null');
+
+      expect(req.request.method).toEqual('POST');
+
+      req.flush(text);
+  });
+
+  it('test for save user', () => {
+    const text = "Saved Successfully" 
+    const data={
+      name:'mihir',
+      surname:'maniar'
+    }
+    service.save_user(data).subscribe(data=>
+      {
+        expect(data).toEqual('Saved Successfully');        
+      })
+      const req = httpTestingController.expectOne('http://localhost:8080/MSAU2020/api/usersave/null');
+
+      expect(req.request.method).toEqual('POST');
+
+      req.flush(text);
+  });
+
+  it('test for save hm', () => {
+    const text = "Saved Successfully" 
+    const data={
+      name:'mihir',
+      surname:'maniar'
+    }
+    service.save_hm(data).subscribe(data=>
+      {
+        expect(data).toEqual('Saved Successfully');        
+      })
+      const req = httpTestingController.expectOne('http://localhost:8080/MSAU2020/api/hmsave/null');
 
       expect(req.request.method).toEqual('POST');
 
